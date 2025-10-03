@@ -2,14 +2,14 @@ import re
 
 def normalize_phone(phone_number: str) -> str:
     """
-    Normalizes phone number: accept phone numbers in international format,
+    Normalizes phone number: accepts phone numbers in international format,
     and UA phone numbers in internation and local format, "+" is optional if starts with UA prefix "380"
 
     Parameters:
         phone_number (str): Phone number to normalize
 
     Returns:
-        str: Normalized phone number in international starting with "+" followed by digits only
+        str: Normalized phone number in international format starting with "+" followed by digits only
     """
     has_plus_prefix = re.search(r"^\D*\+", phone_number)          # If plus present at start: international number, add plus before numbers
     has_380_prefix = re.search(r"^\D*3\D*8\D*0", phone_number)    # If 380 present at start: UA number, add plus before numbers
